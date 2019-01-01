@@ -17,7 +17,7 @@ public:
 
     ~Stack()
     {
-        delete []arr;
+        delete[] arr;
     }
 
     bool Push(int num);
