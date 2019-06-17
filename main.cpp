@@ -6,15 +6,8 @@ using namespace std;
 class Stack
 {
 public:
-	Stack(int size) : mTop(-1), mMax(size)
-	{
-		mArr = new int[size];
-	}
-
-	~Stack()
-	{
-		delete[] mArr;
-	}
+	Stack(int size);
+	~Stack();
 
 	bool Push(int num);
 	int Pop();
@@ -26,6 +19,19 @@ private:
 	int mMax;
 	int* mArr;
 };
+
+Stack::Stack(int size) 
+	: mTop(-1)
+	, mMax(size)
+{
+	mArr = new int[size];
+}
+
+
+Stack::~Stack()
+{
+	delete[] mArr;
+}
 
 bool Stack::Push(int num)
 {
@@ -73,10 +79,14 @@ int main()
 	Stack* st = new Stack(100);
 
 	for (int i = 0; i < 50; i++)
+	{
 		st->Push(i*i - i + 1);
+	}
 
 	while (!st->IsEmpty())
+	{
 		cout << st->Pop() << endl;
+	}
 
 	delete st;
 	return 0;
